@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Bat Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a0c12;
+            color: white;
+            font-family: monospace;
+            height: 100vh;
+            cursor: none;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #eae6ff;
+        }
+        
+        /* Professional Pixel Art Bat Cursor Follower */
+        .bat {
+          position: fixed;
+          pointer-events: none;
+          z-index: 9998;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          transform: translate(-50%, -50%);
+        }
+
+        .bat.active {
+          opacity: 1;
+        }
+
+        .bat.active::before {
+          content: '';
+          position: absolute;
+          left: -30px;
+          top: -15px;
+          width: 1px;
+          height: 1px;
+          transform: scale(1.5);
+          animation: 0.8s professionalBat steps(1) infinite;
+        }
+
+        /* Faster animation when moving */
+        .bat.active.moving::before {
+          animation-duration: 0.3s;
+        }
+
+        /* Slower animation when idle */
+        .bat.active.idle::before {
+          animation-duration: 1.2s;
+        }
+
+        /* Professional Bat Animation Keyframes - Complete */
+        @keyframes professionalBat {
+          0% {
+            box-shadow: 
+              /* Wings extended - frame 1 */
+              15px 10px #54556b, 16px 10px #54556b, 17px 10px #54556b, 18px 10px #54556b, 19px 10px #54556b,
+              40px 10px #54556b, 41px 10px #54556b, 42px 10px #54556b, 43px 10px #54556b, 44px 10px #54556b,
+              12px 11px #54556b, 13px 11px #54556b, 14px 11px #202020, 15px 11px #202020, 16px 11px #202020, 17px 11px #202020, 18px 11px #202020, 19px 11px #54556b, 20px 11px #54556b,
+              39px 11px #54556b, 40px 11px #54556b, 41px 11px #202020, 42px 11px #202020, 43px 11px #202020, 44px 11px #202020, 45px 11px #202020, 46px 11px #54556b, 47px 11px #54556b,
+              10px 12px #54556b, 11px 12px #202020, 12px 12px #202020, 13px 12px #202020, 14px 12px #202020, 15px 12px #202020, 16px 12px #202020, 17px 12px #202020, 18px 12px #202020, 19px 12px #202020, 20px 12px #54556b,
+              38px 12px #54556b, 39px 12px #202020, 40px 12px #202020, 41px 12px #202020, 42px 12px #202020, 43px 12px #202020, 44px 12px #202020, 45px 12px #202020, 46px 12px #202020, 47px 12px #202020, 48px 12px #54556b,
+              /* Body */
+              28px 13px #54556b, 29px 13px #202020, 30px 13px #202020, 31px 13px #54556b,
+              28px 14px #54556b, 29px 14px #202020, 30px 14px #202020, 31px 14px #54556b,
+              27px 15px #54556b, 28px 15px #202020, 29px 15px #fff, 30px 15px #fff, 31px 15px #202020, 32px 15px #54556b,
+              27px 16px #54556b, 28px 16px #202020, 29px 16px #fff, 30px 16px #fff, 31px 16px #202020, 32px 16px #54556b,
+              28px 17px #54556b, 29px 17px #54556b, 30px 17px #54556b, 31px 17px #54556b;
+          }
+          
+          25% {
+            box-shadow: 
+              /* Wings mid-flap - frame 2 */
+              17px 9px #54556b, 18px 9px #54556b, 19px 9px #54556b,
+              40px 9px #54556b, 41px 9px #54556b, 42px 9px #54556b,
+              15px 10px #54556b, 16px 10px #202020, 17px 10px #202020, 18px 10px #202020, 19px 10px #202020, 20px 10px #54556b,
+              38px 10px #54556b, 39px 10px #202020, 40px 10px #202020, 41px 10px #202020, 42px 10px #202020, 43px 10px #54556b,
+              14px 11px #54556b, 15px 11px #202020, 16px 11px #202020, 17px 11px #202020, 18px 11px #202020, 19px 11px #202020, 20px 11px #54556b,
+              37px 11px #54556b, 38px 11px #202020, 39px 11px #202020, 40px 11px #202020, 41px 11px #202020, 42px 11px #202020, 43px 11px #54556b,
+              /* Body */
+              28px 12px #54556b, 29px 12px #202020, 30px 12px #202020, 31px 12px #54556b,
+              28px 13px #54556b, 29px 13px #202020, 30px 13px #202020, 31px 13px #54556b,
+              27px 14px #54556b, 28px 14px #202020, 29px 14px #fff, 30px 14px #fff, 31px 14px #202020, 32px 14px #54556b,
+              27px 15px #54556b, 28px 15px #202020, 29px 15px #fff, 30px 15px #fff, 31px 15px #202020, 32px 15px #54556b,
+              28px 16px #54556b, 29px 16px #54556b, 30px 16px #54556b, 31px 16px #54556b;
+          }
+          
+          50% {
+            box-shadow: 
+              /* Wings up - frame 3 */
+              18px 8px #54556b, 19px 8px #54556b, 40px 8px #54556b, 41px 8px #54556b,
+              17px 9px #54556b, 18px 9px #202020, 19px 9px #202020, 20px 9px #54556b,
+              38px 9px #54556b, 39px 9px #202020, 40px 9px #202020, 41px 9px #54556b,
+              16px 10px #54556b, 17px 10px #202020, 18px 10px #202020, 19px 10px #202020, 20px 10px #54556b,
+              37px 10px #54556b, 38px 10px #202020, 39px 10px #202020, 40px 10px #202020, 41px 10px #54556b,
+              /* Body */
+              28px 11px #54556b, 29px 11px #202020, 30px 11px #202020, 31px 11px #54556b,
+              28px 12px #54556b, 29px 12px #202020, 30px 12px #202020, 31px 12px #54556b,
+              27px 13px #54556b, 28px 13px #202020, 29px 13px #fff, 30px 13px #fff, 31px 13px #202020, 32px 13px #54556b,
+              27px 14px #54556b, 28px 14px #202020, 29px 14px #fff, 30px 14px #fff, 31px 14px #202020, 32px 14px #54556b,
+              28px 15px #54556b, 29px 15px #54556b, 30px 15px #54556b, 31px 15px #54556b;
+          }
+          
+          75% {
+            box-shadow: 
+              /* Wings mid-flap down - frame 4 */
+              17px 11px #54556b, 18px 11px #54556b, 19px 11px #54556b,
+              40px 11px #54556b, 41px 11px #54556b, 42px 11px #54556b,
+              15px 12px #54556b, 16px 12px #202020, 17px 12px #202020, 18px 12px #202020, 19px 12px #202020, 20px 12px #54556b,
+              38px 12px #54556b, 39px 12px #202020, 40px 12px #202020, 41px 12px #202020, 42px 12px #202020, 43px 12px #54556b,
+              14px 13px #54556b, 15px 13px #202020, 16px 13px #202020, 17px 13px #202020, 18px 13px #202020, 19px 13px #202020, 20px 13px #54556b,
+              37px 13px #54556b, 38px 13px #202020, 39px 13px #202020, 40px 13px #202020, 41px 13px #202020, 42px 13px #202020, 43px 13px #54556b,
+              /* Body */
+              28px 14px #54556b, 29px 14px #202020, 30px 14px #202020, 31px 14px #54556b,
+              28px 15px #54556b, 29px 15px #202020, 30px 15px #202020, 31px 15px #54556b,
+              27px 16px #54556b, 28px 16px #202020, 29px 16px #fff, 30px 16px #fff, 31px 16px #202020, 32px 16px #54556b,
+              27px 17px #54556b, 28px 17px #202020, 29px 17px #fff, 30px 17px #fff, 31px 17px #202020, 32px 17px #54556b,
+              28px 18px #54556b, 29px 18px #54556b, 30px 18px #54556b, 31px 18px #54556b;
+          }
+        }
+    </style>
+</head>
+<body>
+    <h1>Pixel Bat Cursor Follower Test</h1>
+    <p>Move your mouse around to see the pixel bat following your cursor with wing-flapping animation!</p>
+    <p>The bat appears as a detailed pixel art sprite with animated wings.</p>
+    
+    <!-- Professional Pixel Art Bat Cursor Follower -->
+    <div class="bat" id="pixel-bat" aria-hidden="true"></div>
+    
+    <script>
+        // Pixel Bat Cursor Follower
+        const PixelBat = (() => {
+          const bat = document.getElementById('pixel-bat');
+          if (!bat) return { init: () => {} };
+
+          let mouseX = 0, mouseY = 0;
+          let batX = 0, batY = 0;
+          let isMoving = false;
+          let lastMoveTime = Date.now();
+          let animationId = null;
+
+          const FOLLOW_SPEED = 0.08;
+          const FOLLOW_DISTANCE = 30;
+          const IDLE_DELAY = 1000;
+
+          const updatePosition = () => {
+            const dx = mouseX - batX;
+            const dy = mouseY - batY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > FOLLOW_DISTANCE + 5 || distance < FOLLOW_DISTANCE - 5) {
+              const angle = Math.atan2(dy, dx);
+              const targetX = mouseX - Math.cos(angle) * FOLLOW_DISTANCE;
+              const targetY = mouseY - Math.sin(angle) * FOLLOW_DISTANCE;
+              
+              const targetDx = targetX - batX;
+              const targetDy = targetY - batY;
+              
+              batX += targetDx * FOLLOW_SPEED;
+              batY += targetDy * FOLLOW_SPEED;
+              
+              bat.style.left = batX + 'px';
+              bat.style.top = batY + 'px';
+              
+              lastMoveTime = Date.now();
+              
+              if (!isMoving) {
+                isMoving = true;
+                bat.classList.add('moving');
+                bat.classList.remove('idle');
+              }
+            }
+
+            if (isMoving && Date.now() - lastMoveTime > IDLE_DELAY) {
+              isMoving = false;
+              bat.classList.remove('moving');
+              bat.classList.add('idle');
+            }
+
+            animationId = requestAnimationFrame(updatePosition);
+          };
+
+          const onMouseMove = (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            if (!bat.classList.contains('active')) {
+              bat.classList.add('active');
+              batX = mouseX;
+              batY = mouseY;
+              bat.style.left = batX + 'px';
+              bat.style.top = batY + 'px';
+            }
+          };
+
+          const onMouseLeave = () => {
+            bat.classList.remove('active', 'moving', 'idle');
+          };
+
+          const init = () => {
+            // Skip on touch devices
+            if (!window.matchMedia('(hover: hover)').matches) {
+              return;
+            }
+            
+            document.addEventListener('mousemove', onMouseMove, { passive: true });
+            document.addEventListener('mouseleave', onMouseLeave, { passive: true });
+            
+            // Start animation loop
+            updatePosition();
+          };
+
+          return { init };
+        })();
+
+        // Initialize bat when DOM is ready
+        PixelBat.init();
+    </script>
+</body>
+</html>
